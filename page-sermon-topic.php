@@ -2,13 +2,23 @@
 
 get_header();
 
-$has_sidebar = is_active_sidebar( 'main' );
+$has_sidebar    = is_active_sidebar( 'main' );
+$args = array(
+  'taxonomy'     => 'ctc_sermon_topic',
+  'orderby'      => 'name',
+  'show_count'   => false,
+  'pad_counts'   => false,
+  'hierarchical' => true,
+  'title_li'      => ''
+);
 
 ?>
 
 <section class="masthead <?php if ( ! $has_sidebar ) echo 'masthead--centered' ?> section">
   <div class="container">
-    <?php the_title( '<h1 class="masthead__title col col--xs--12 col--md--9"><div class="row">', '</div></h1>' ); ?>
+    <h1 class="masthead__title col col--xs--12 col--md--9">
+      <div class="row">Topics</div>
+    </h1>
     <?php if ( is_active_sidebar( 'masthead-right' ) ) : ?>
       <div class="masthead__right widget-area col col--xs--12 col--md--3">
         <div class="row">
@@ -23,21 +33,9 @@ $has_sidebar = is_active_sidebar( 'main' );
   <div class="container">
     <div class="row">
       <div class="col col--xs--12 <?php echo ( $has_sidebar ? 'col--md--7' : 'col--sm--10 col--sm--offset--1 col--md--8 col--md--offset--2' ); ?>">
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-          <article <?php post_class( 'entry entry--page' ); ?>>
-            <?php if ( has_post_thumbnail() ) : ?>
-              <div class="entry__thumbnail"><?php the_post_thumbnail( 'large' ); ?></div>
-            <?php endif; ?>
-
-            <div class="entry__body rich-text">
-              <?php the_content(); ?>
-            </div>
-          </article>
-
-          <?php comments_template(); ?>
-        <?php endwhile; else: ?>
-          <?php _e( 'Nothing found.', 'restful' ); ?>
-        <?php endif; ?>
+        <ul class="categories">
+          <?php wp_list_categories($args); ?>
+        </ul>
       </div>
 
       <?php if ( $has_sidebar ) get_sidebar(); ?>

@@ -8,7 +8,14 @@ get_header();
 
 <section class="masthead section">
   <div class="container">
-    <?php the_title( '<h1 class="masthead__title">', '</h1>' ); ?>
+    <?php the_title( '<h1 class="masthead__title col col--xs--12 col--md--9"><div class="row">', '</div></h1>' ); ?>
+    <?php if ( is_active_sidebar( 'masthead-right' ) ) : ?>
+      <div class="masthead__right widget-area col col--xs--12 col--md--3">
+        <div class="row">
+          <?php dynamic_sidebar( 'masthead-right' ); ?>
+        </div>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 

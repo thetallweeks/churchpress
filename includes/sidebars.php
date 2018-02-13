@@ -31,6 +31,11 @@ function restful_register_sidebars() {
   ), $markup ) );
 
   register_sidebar( array_merge( array(
+    'name' => __( 'Masthead Right', 'restful' ),
+    'id'   => 'masthead-right',
+  ), $markup ) );
+
+  register_sidebar( array_merge( array(
     'name' => __( 'Footer 1', 'restful' ),
     'id'   => 'footer-1',
   ), $markup ) );
@@ -43,6 +48,11 @@ function restful_register_sidebars() {
   register_sidebar( array_merge( array(
     'name' => __( 'Footer 3', 'restful' ),
     'id'   => 'footer-3',
+  ), $markup ) );
+
+  register_sidebar( array_merge( array(
+    'name' => __( 'Footer 4', 'restful' ),
+    'id'   => 'footer-4',
   ), $markup ) );
 
 }

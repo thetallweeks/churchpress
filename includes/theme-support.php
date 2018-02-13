@@ -18,7 +18,9 @@ function restful_add_theme_support() {
     'taxonomies' => array(
       'ctc_sermon_book',
       'ctc_sermon_series',
-      'ctc_sermon_speaker'
+      'ctc_sermon_speaker',
+      'ctc_sermon_topic',
+      'ctc_sermon_session'
     ),
     'fields'     => array(
       '_ctc_sermon_video',

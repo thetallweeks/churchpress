@@ -21,9 +21,9 @@
         </div>
       <?php endif; ?>
 
-      <?php if ( restful_site_social_urls() ) : ?>
+      <?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
         <div class="widget-area col col--xs--12 col--md--3">
-          <?php echo restful_social_icons( restful_site_social_urls() ); ?>
+          <?php dynamic_sidebar( 'footer-4' ); ?>
         </div>
       <?php endif; ?>
     </div>

@@ -11,7 +11,18 @@ $has_sidebar    = is_active_sidebar( 'main' );
 <section class="masthead <?php if ( ! $has_sidebar ) echo 'masthead--centered' ?> section">
   <div class="container">
     <div class="masthead__subtitle masthead__subtitle--above"><?php echo $taxonomy->labels->singular_name; ?></div>
-    <h1 class="masthead__title"><?php echo $queried_object->name; ?></h1>
+    <h1 class="masthead__title col col--xs--12 col--md--9">
+      <div class="row">
+        <?php echo $queried_object->name; ?>
+      </div>
+    </h1>
+    <?php if ( is_active_sidebar( 'masthead-right' ) ) : ?>
+      <div class="masthead__right widget-area col col--xs--12 col--md--3">
+        <div class="row">
+          <?php dynamic_sidebar( 'masthead-right' ); ?>
+        </div>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 

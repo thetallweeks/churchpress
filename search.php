@@ -8,7 +8,18 @@ $has_sidebar = is_active_sidebar( 'main' );
 
 <section class="masthead <?php if ( ! $has_sidebar ) echo 'masthead--centered' ?> section">
   <div class="container">
-    <h1 class="masthead__title"><?php _e( 'Results', 'restful' ); ?>: <?php the_search_query(); ?></h1>
+    <h1 class="masthead__title col col--xs--12 col--md--9">
+      <div class="row">
+        <?php _e( 'Results', 'restful' ); ?>: <?php the_search_query(); ?>
+      </div>
+    </h1>
+    <?php if ( is_active_sidebar( 'masthead-right' ) ) : ?>
+      <div class="masthead__right widget-area col col--xs--12 col--md--3">
+        <div class="row">
+          <?php dynamic_sidebar( 'masthead-right' ); ?>
+        </div>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 
